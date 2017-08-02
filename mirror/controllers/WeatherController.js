@@ -22,10 +22,19 @@ exports.getActualWeather = function( request , response )
                 displayElement.city_info.localisation = WEATHER_SERVICE_CITY_PARAM;
 
                 console.log( displayElement );
-                response.render( 'index',  displayElement );
+                response.render( 'fragment/weather',  displayElement );
+
             }
 
         }
     );
+}
 
+exports.getControllerParameter = function( request , response )
+{
+    response.json( {
+            name:'weather', 
+            css:'/stylesheets/weather.css',
+            html:'weather'
+    });
 }

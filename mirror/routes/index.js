@@ -9,4 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/weather' , weatherController.getActualWeather );
 
+router.get('/weather/module_desc' , weatherController.getControllerParameter );
+
 module.exports = router;

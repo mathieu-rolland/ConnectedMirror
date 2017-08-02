@@ -1,3 +1,5 @@
+var dateformat = require('dateformat');
+
 
 exports.parseWeatherResponse = function( response ){
 
@@ -17,8 +19,18 @@ exports.parseWeatherResponse = function( response ){
         image: response.fcst_day_0.icon_big
     };
 
-    var hourKey = weatherResponse.current_weather.hour.replace(':','H');
-    weatherResponse.current_weather.temperature = response.fcst_day_0.hourly_data[hourKey].TMP2m;
+    var hourKey = dateformat( Date() , 'H' ) + 'H00';
+
+    var data;
+    if( hourKey === '0H00' ){
+        data = response.fcst_day_1;
+    }else{
+        data = response.fcst_day_0;
+    }
+    
+    if( data.hourly_data[hourKey] != undefined ){
+        weatherResponse.current_weather.temperature = data.hourly_data[hourKey].TMP2m;
+    }
 
     return weatherResponse;
 };
