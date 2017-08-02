@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "express": "~4.15.3",
-    "express-generator": "~4.15.0"
+    "express-generator": "~4.15.0",
+    "nodemon": "^1.11.0"
   }
 }
