@@ -1,0 +1,10 @@
+.weather_module
+{
+    width: 200px;
+    background:rgb(0, 204, 153);
+    padding : 20px;
+    border-radius: 10pt;
+    text-align: center;
+}
+
+.weather_module .

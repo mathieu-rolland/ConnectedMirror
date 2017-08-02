@@ -1,6 +1,23 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
+  
+  <div class="weather_module">
+    
+    <h1>{{title}}</h1>
+
+    <div class="weather">
+
+      <h2>{{current_weather.date}}</h2>
+
+      <div class="content">
+        <p>{{current_weather.hour}}</p>
+        <p><img src="{{current_weather.image}}" alt="{{current_weather.condition}}"</p>
+        <p>{{current_weather.condition}} - {{current_weather.temperature}} °C</p>
+      </div>
+
+    </div>
+
+  </div>
+
 {% endblock %}
