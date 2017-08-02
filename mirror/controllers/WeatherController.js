@@ -1,6 +1,6 @@
 //Libraries :
 var requestLib = require('request'); 
-var weatherService = require('../../services/WeatherParserResponse');
+var weatherService = require('../services/WeatherParserService');
 
 //Local static variables
 var WEATHER_SERVICE_URL = "http://www.prevision-meteo.ch/services/json/";
@@ -19,7 +19,7 @@ exports.getActualWeather = function( request , response )
                 var displayElement = weatherService.parseWeatherResponse( JSON.parse(body) );
 
                 displayElement.title = "Météo du jour";
-                displayElement.city_info.localisastion = WEATHER_SERVICE_CITY_PARAM;
+                displayElement.city_info.localisation = WEATHER_SERVICE_CITY_PARAM;
 
                 console.log( displayElement );
                 response.render( 'index',  displayElement );
@@ -28,13 +28,4 @@ exports.getActualWeather = function( request , response )
         }
     );
 
-
-
-    /*var renderVariables = { 
-            title: 'Connected Mirror',
-            localisation: 'Rennes' 
-        };
-
-    response.render( 'index', renderVariables );
-    */
 }
