@@ -3,6 +3,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: black;
   color: white;
+
+}
+
+.modules{
+  position: relative;
+  overflow: hidden;
+}
+
+.clearfix{
+  clear: both;
 }
 
 a {

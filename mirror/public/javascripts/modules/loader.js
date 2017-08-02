@@ -2,9 +2,15 @@
 //On document ready :
 $(function() {
 
-    $.get( '/weather' , function(data){
-        console.log(data);
-        $('#modules').html( data );
-    } );
+    updateWeather();
 
 });
+
+var updateWeather = function(){
+
+    $.get( '/weather' , function(data){
+        $(".weather_module").remove();
+        $('#modules').append( data );
+    } );
+    setTimeout( updateWeather , 2000 );
+};

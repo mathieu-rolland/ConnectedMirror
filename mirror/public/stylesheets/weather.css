@@ -5,6 +5,9 @@
     padding : 20px;
     border-radius: 10pt;
     text-align: center;
+
+    float: right;
+
 }
 
 /*.weather_module .*/
