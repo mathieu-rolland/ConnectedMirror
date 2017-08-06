@@ -19,7 +19,9 @@ exports.parseWeatherResponse = function( response ){
         image: response.fcst_day_0.icon_big
     };
 
-    var hourKey = dateformat( Date() , 'H' ) + 'H00';
+    /*Get current weather : */
+    var hourStart = dateformat( Date() , 'H' )
+    var hourKey =  hourStart + 'H00';
 
     var data;
     if( hourKey === '0H00' ){
@@ -30,6 +32,17 @@ exports.parseWeatherResponse = function( response ){
     
     if( data.hourly_data[hourKey] != undefined ){
         weatherResponse.current_weather.temperature = data.hourly_data[hourKey].TMP2m;
+    }
+    
+    /*Get weather for previous hour and next hours (depending of i value)*/
+    weatherResponse.daily = Array();
+    for( var i = 0 ; i < 6 ; i++ ){
+        hourKey = ( parseInt(hourStart) + i - 1) + 'H00';
+        weatherResponse.daily.push( {
+            'hour' : hourKey,
+            'image': data.hourly_data[hourKey].ICON,
+            'temperature' : data.hourly_data[hourKey].TMP2m
+      } );
     }
 
     return weatherResponse;

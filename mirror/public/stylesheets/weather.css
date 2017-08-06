@@ -1,13 +1,61 @@
 .weather_module
 {
-    width: 200px;
+    width: 210px;
     background:rgb(0, 204, 153);
     padding : 20px;
     border-radius: 10pt;
     text-align: center;
 
     float: right;
+    
+}
 
+/*weather line details*/
+.hour_row{
+    height: 60px;
+}
+.today_weather ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    display: table;
+}
+
+.today_weather ul li{
+    list-style: none;
+    padding: 10px;
+    width : 49px;
+    height: 100%;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.today_weather .hour_info{
+    height: 100%;
+}
+
+/* weather card rotation */
+.weather_module.rotateout
+{
+    -webkit-animation: rotate_out 2s  normal forwards;
+}
+
+.weather_module.rotatein
+{
+    /*transform: rotateY(150deg);*/
+    -webkit-animation: rotate_in 2s  normal forwards;
 }
 
 /*.weather_module .*/
+
+@-webkit-keyframes rotate_out {
+    0%  {-webkit-transform: rotateY(0deg);}
+    100% {-webkit-transform: rotateY(90deg);}   
+}
+
+@-webkit-keyframes rotate_in {
+    0%  {-webkit-transform: rotateY(90deg);}
+    100% {-webkit-transform: rotateY(0deg);}   
+}
