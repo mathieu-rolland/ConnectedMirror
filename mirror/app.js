@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//database :
+var models = require('./models');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'twig');
@@ -41,6 +44,12 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+models.sequelize.sync().then(function () {
+  console.info("Database created successfully");
+}).error( e => {
+  console.error( e );
 });
 
 module.exports = app;
