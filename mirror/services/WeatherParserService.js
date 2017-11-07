@@ -38,11 +38,20 @@ exports.parseWeatherResponse = function( response ){
     weatherResponse.daily = Array();
     for( var i = 0 ; i < 6 ; i++ ){
         hourKey = ( parseInt(hourStart) + i - 1) + 'H00';
-        weatherResponse.daily.push( {
-            'hour' : hourKey,
-            'image': data.hourly_data[hourKey].ICON,
-            'temperature' : data.hourly_data[hourKey].TMP2m
-      } );
+
+        //case of key = 24H00 : 
+        if( (parseInt(hourStart) + i - 1) > 23  ){
+            data = response.fcst_day_1;
+            hourKey = ( parseInt(hourStart) + i - 25) + 'H00';
+        }
+
+        if( data.hourly_data[hourKey] != undefined ){
+            weatherResponse.daily.push( {
+                'hour' : hourKey,
+                'image': data.hourly_data[hourKey].ICON,
+                'temperature' : data.hourly_data[hourKey].TMP2m
+        } );
+    }
     }
 
     return weatherResponse;
