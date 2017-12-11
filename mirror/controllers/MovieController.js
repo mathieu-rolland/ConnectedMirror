@@ -7,7 +7,7 @@ const MEDIATHEQUE_WS_MOVIES="http://vps291163.ovh.net:8989/movies/my-movies/db/"
 const MEDIATHEQUE_WS_LOGIN="http://vps291163.ovh.net:8989/user/login";
 
 const USER='Mathieu';
-const PASSWORD='snowmathieu';
+const PASSWORD='';
 
 exports.getMovies = function( request , response  )
 {
