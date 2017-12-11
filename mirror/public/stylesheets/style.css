@@ -7,7 +7,7 @@ body {
 }
 
 .modules{
-  position: relative;
+  position: absolute;
   overflow: hidden;
 }
 

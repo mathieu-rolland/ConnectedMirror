@@ -1,0 +1,16 @@
+
+<div class="module module_movies">
+    <div class="movies">
+
+        {% for movie in movies %}
+            <div class="movie">
+
+                <div class="preview">
+                    <img alt="" src ="{{movie.poster.href}}" />
+                </div>
+
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
