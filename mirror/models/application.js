@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: {
       type: DataTypes.STRING
+    },
+    parameters: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {
