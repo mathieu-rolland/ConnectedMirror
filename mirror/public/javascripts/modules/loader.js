@@ -4,6 +4,7 @@ $(function() {
 
     updateWeather();
     updateMovies();
+    drawMaps();
 
 });
 
@@ -47,6 +48,25 @@ var updateMovies = function(){
     
         setTimeout( updateMovies , 60*5000 );
         //setTimeout( updateWeather , 5 * 60 * 1000 );
-    
 
+};
+
+var drawMaps = function(){
+        
+        console.log('drawMaps');
+
+        $.get( '/maps' , function(data){
+
+                $(".module_maps").remove();
+                $('#modules').append( data );
+                
+                init();
+                calculate();
+
+                $(".module_maps").draggable({stop : function(){
+                    console.log('Position to save : [' + $(this).css('left') + ', ' + $(this).css('top') +']');
+                }});
+
+        });
+        
 };
