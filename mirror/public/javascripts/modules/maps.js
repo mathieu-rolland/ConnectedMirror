@@ -6,7 +6,7 @@ var destination = new google.maps.LatLng( 48.132370, -1.638617 );
 var myOptions = {
     zoom      : 5, // Zoom par défaut
     center    : origin, // Coordonnées de départ de la carte de type latLng 
-    mapTypeId : google.maps.MapTypeId.TERRAIN, // Type de carte, différentes valeurs possible HYBRID, ROADMAP, SATELLITE, TERRAIN
+    mapTypeId : google.maps.MapTypeId.ROADMAP, // Type de carte, différentes valeurs possible HYBRID, ROADMAP, SATELLITE, TERRAIN
     disableDefaultUI: true,
 };
 
